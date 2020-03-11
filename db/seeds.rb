@@ -4,6 +4,7 @@ require 'byebug'
 
 Location.destroy_all
 User.destroy_all
+Review.destroy_all
 
 key = Rails.application.credentials[:API]
 
