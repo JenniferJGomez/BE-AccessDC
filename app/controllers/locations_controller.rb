@@ -12,7 +12,7 @@ class LocationsController < ApplicationController
     location = Location.find(params[:id])
     render json: location.to_json(
       :include => {:reviews =>
-        {:except => [:created_at, :updated_at]}}
+        {:include => :user}}
     )
   end
 
