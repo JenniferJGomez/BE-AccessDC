@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   #~~~~~~~reviews routes~~~~~~~~#
   post '/reviews', to: 'locations#reviews'
+  delete 'reviews/:user_id/:location_id', to: 'locations#destroy'
 
   #~~~~~~~ratings routes~~~~~~~~#
   post '/ratings', to: 'locations#ratings'

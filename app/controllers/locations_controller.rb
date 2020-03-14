@@ -16,8 +16,19 @@ class LocationsController < ApplicationController
     )
   end
 
+  def reviews
+    review = Review.find_or_create_by(user_id: params[:user_id], location_id: params[:location_id], review: params[:review])
+    render json: review
+  end
+
+  #favorite methods
   def favorites
     favorite = Favorite.find_or_create_by(user_id: params[:user_id], location_id: params[:location_id])
     render json: favorite
+  end
+
+  def destroy
+    review = Review.find(user_id: params[:user_id], location_id: params[:location_id])
+    Review.destroy(review.id)
   end
 end
