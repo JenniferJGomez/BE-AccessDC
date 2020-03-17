@@ -18,7 +18,7 @@ class LocationsController < ApplicationController
 
   def reviews
     review = Review.find_or_create_by(user_id: params[:user_id], location_id: params[:location_id], review: params[:review])
-    render json: review
+    render json: review.to_json(:include => :user)
   end
 
   #favorite methods
