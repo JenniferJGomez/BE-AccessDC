@@ -28,7 +28,7 @@ class LocationsController < ApplicationController
   end
 
   def destroy
-    review = Review.find(user_id: params[:user_id], location_id: params[:location_id])
+    review = Review.find_by(user_id: params[:user_id], location_id: params[:location_id])
     Review.destroy(review.id)
   end
 end
