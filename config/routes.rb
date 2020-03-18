@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   #~~~~~~~favorites routes~~~~~~~#
   post '/favorites', to: 'locations#favorites'
-  delete '/favorites/:user_id/:location_id', to: 'locations#destroy'
+  delete '/favorites/:user_id/:location_id', to: 'locations#destroy_favorite'
 
   #~~~~~~~reviews routes~~~~~~~~#
   post '/reviews', to: 'locations#reviews'
