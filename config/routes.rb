@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :ratings
   resources :users
   resources :locations
 
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
 
   #~~~~~~~ratings routes~~~~~~~~#
   post '/ratings', to: 'locations#ratings'
+  get '/ratings', to: 'locations#ratings'
 
  
 end

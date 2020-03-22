@@ -21,6 +21,11 @@ class LocationsController < ApplicationController
     render json: review.to_json(:include => :user)
   end
 
+  def ratings
+    rating = Rating.find_or_create_by(user_id: params[:user_id], location_id: params[:location_id], rating: params[:rating])
+    render json: rating.to_json()
+  end
+
   #favorite methods
   def favorites
     favorite = Favorite.find_or_create_by(user_id: params[:user_id], location_id: params[:location_id])
