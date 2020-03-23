@@ -11,8 +11,7 @@ class LocationsController < ApplicationController
   def show
     location = Location.find(params[:id])
     render json: location.to_json(
-      :include => {:reviews =>
-        {:include => :user}}
+      {:include => [:ratings, :reviews => {:include => :user}]}
     )
   end
 
