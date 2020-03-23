@@ -15,19 +15,22 @@ response = JSON.parse(response_yelp)
 
 response_array = response["businesses"]
 
+user1 = User.create(username: "CatTheGreat", name: "Cat Walker", avatar:"https://image.flaticon.com/icons/png/512/194/194938.png")
+
 response_array.each do |location|
-    # id = location["id"]
-    # rating = location["rating"]
+    rating = location["rating"]
     name = location["name"]
     img_url = location["image_url"]
     url = location["url"]
     phone = location["display_phone"]
     address = location["location"]["display_address"][0]
-    Location.create(name: name, img_url: img_url, url:url, phone:phone, address: address)
+
+    location = Location.create(name: name, img_url: img_url, url:url, phone:phone, address: address)
+    Rating.create(user_id: user1.id, location_id: location.id, rating: rating)
 end
 
 
-User.create(username: "CatTheGreat", name: "Cat Walker", avatar:"https://image.flaticon.com/icons/png/512/194/194938.png")
+
 
 
 
